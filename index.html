@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Идея для ребёнка</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="language-switch" aria-label="Выбор языка">
+          <button class="language-button is-active" type="button" data-lang="ru">RU</button>
+          <button class="language-button" type="button" data-lang="kk">KZ</button>
+        </div>
+
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="eyebrow">ИИ-помощник для родителей</p>
+          <h1 id="hero-title" data-i18n="title">Чем занять ребёнка?</h1>
+          <p class="subtitle" data-i18n="subtitle">
+            Ответьте на несколько вопросов — и получите идею, которая подойдёт именно сейчас
+          </p>
+        </div>
+
+        <form class="idea-form" id="ideaForm">
+          <fieldset>
+            <legend data-i18n="ageLabel">Возраст ребёнка</legend>
+            <div class="option-grid">
+              <label><input type="radio" name="age" value="2-3" checked /> <span>2–3 года</span></label>
+              <label><input type="radio" name="age" value="4-5" /> <span>4–5 лет</span></label>
+              <label><input type="radio" name="age" value="6-8" /> <span>6–8 лет</span></label>
+              <label><input type="radio" name="age" value="9-12" /> <span>9–12 лет</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend data-i18n="timeLabel">Сколько времени есть?</legend>
+            <div class="option-grid three">
+              <label><input type="radio" name="time" value="10" checked /> <span data-i18n="time10">10 минут</span></label>
+              <label><input type="radio" name="time" value="30" /> <span data-i18n="time30">20–30 минут</span></label>
+              <label><input type="radio" name="time" value="60" /> <span data-i18n="time60">1 час</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend data-i18n="placeLabel">Где будет проходить занятие?</legend>
+            <div class="option-grid three">
+              <label><input type="radio" name="place" value="home" checked /> <span data-i18n="home">Дома</span></label>
+              <label><input type="radio" name="place" value="outside" /> <span data-i18n="outside">На улице</span></label>
+              <label><input type="radio" name="place" value="travel" /> <span data-i18n="travel">В дороге</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend data-i18n="goalLabel">Что хочется сейчас?</legend>
+            <div class="option-grid goals">
+              <label><input type="radio" name="goal" value="calm" checked /> <span data-i18n="calm">Спокойное занятие</span></label>
+              <label><input type="radio" name="goal" value="active" /> <span data-i18n="active">Активная игра</span></label>
+              <label><input type="radio" name="goal" value="creative" /> <span data-i18n="creative">Творчество</span></label>
+              <label><input type="radio" name="goal" value="learning" /> <span data-i18n="learning">Обучение</span></label>
+              <label><input type="radio" name="goal" value="solo" /> <span data-i18n="solo">Занятие без участия взрослого</span></label>
+            </div>
+          </fieldset>
+
+          <button class="primary-button" type="submit" data-i18n="submit">Подобрать занятие</button>
+        </form>
+      </section>
+
+      <section class="result-panel" id="resultPanel" aria-live="polite" hidden>
+        <article class="result-card">
+          <div class="result-topline">
+            <span class="badge" id="ideaTime">10 минут</span>
+            <span class="badge soft" id="ideaAge">2–3 года</span>
+          </div>
+          <h2 id="ideaTitle"></h2>
+          <p class="idea-description" id="ideaDescription"></p>
+
+          <div class="details-grid">
+            <div>
+              <h3 data-i18n="materials">Что понадобится</h3>
+              <p id="ideaMaterials"></p>
+            </div>
+            <div>
+              <h3 data-i18n="benefit">Чем полезно</h3>
+              <p id="ideaBenefit"></p>
+            </div>
+          </div>
+
+          <div class="steps-block">
+            <h3 data-i18n="steps">Как провести</h3>
+            <ol id="ideaSteps"></ol>
+          </div>
+
+          <div class="result-actions">
+            <button class="secondary-button" type="button" id="anotherIdea" data-i18n="another">Другая идея</button>
+            <button class="secondary-button copy" type="button" id="copyIdea" data-i18n="copy">Скопировать</button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" data-i18n="copied">Идея скопирована</div>
+    <script src="script.js"></script>
+  </body>
+</html>
